@@ -1,0 +1,25 @@
+version: "3.0"
+
+services:
+  articles_app:
+    build: .
+    container_name: articles_app
+    profiles:
+      - full
+    ports:
+      - "8080:8080"
+    depends_on:
+      - articles_db
+    environment:
+      DATABASE_URL: jdbc:postgresql://articles_db:5432/articles
+
+  articles_db:
+    image: 'postgres:16.4-alpine'
+    container_name: articles_db
+    environment:
+      POSTGRES_DB: "articles"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "qwe"
+      POSTGRES_ROOT_PASSWORD: "qwe"
+    ports:
+      - "5432:5432"

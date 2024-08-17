@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: articles
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/articles}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:qwe}
+    driver-class-name: org.postgresql.Driver
+
+app:
+  auth:
+    secret: ${SECRET:tDuk3fkWIC51UjXIqoLYY3TyjxHo5Prc8sABzZXNelo6YArg4wQhmI9zBdAdVzQZ}
