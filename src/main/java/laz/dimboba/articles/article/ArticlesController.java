@@ -30,7 +30,7 @@ public class ArticlesController {
     private final AuthorRepository authorRepository;
 
     @GetMapping
-    public ResponseEntity<Page<Article>> getArticles(@RequestParam Pageable pageable) {
+    public ResponseEntity<Page<Article>> getArticles(Pageable pageable) {
         var articles = articleRepository.findAll(pageable)
             .map(ArticleEntity::toDto);
         return ResponseEntity.ok(articles);
